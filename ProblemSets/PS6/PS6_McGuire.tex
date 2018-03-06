@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{PS6 McGuire}
+\author{Joel McGuire}
+\date{March 2018}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+
+\begin{document}
+
+\maketitle
+
+\section{Cleaning and Transformation Steps}
+
+\begin{enumerate}
+    \item Discretization of Continuous variables
+    \item Recode NA as factor level
+    \item Flatten Lists and extract values
+    \item Create date object, then create duration variable
+    \item Remove unnecessary variables
+    \item Transform distributions to normal
+\end{enumerate}
+
+
+
+\section{Visualizations}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=14cm,height=14cm]{goal_duration_histogram.png}
+\caption{Histogram of Duration and Endstate}
+\end{figure}
+
+Figure 1 shows that the most goals are lost relatively soon after they are created. This suggests that if the duration of a goal passes a certain threshold it will be more likely to succeed than fail. 
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=14cm,height=14cm]{goal_density_byMonth.png}
+\caption{Density of Goals Created by Month of Year, Bracketed by Time Horizon}
+\end{figure}
+
+Figure 2 shows that the distribution of goals that are won and loss appear to be different when sorted by month created. That there is not a uniform distribution across all types of time horizons (present term, near term, and long term) suggests a strong seasonal component. 
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=14cm,height=14cm]{goal_duration_density.png}
+\caption{Density of Goal Duration Bracketed By Amount Paid}
+\end{figure}
+
+Figure 3 displays the relationship between how much someone has paid for going off track of their goals, and the density of goal duration. Goal duration is exponentially distributed by becomes less skewed to the left as users pay more. This also suggests that the distributions of the duration of winning and losing goals are roughly similar.
+
+
+\end{document}
