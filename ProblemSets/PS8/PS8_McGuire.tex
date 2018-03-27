@@ -1,0 +1,74 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{PS8 McGuire}
+\author{Joel McGuire}
+\date{March 2018}
+
+\begin{document}
+
+\maketitle
+
+\section{Beta Similarity}
+
+For my output of the OLS model I get coefficients that have about .001 error, which is the irreducible error. I had a problem with the stargazer table giving me 1.999 for all of the coefficients so I had to manually change it. 
+
+
+
+\begin{table}[!htbp] \centering 
+  \caption{} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & Y \\ 
+\hline \\[-1.8ex] 
+ xone & 1.498$^{***}$ \\ 
+  & (0.002) \\ 
+  & \\ 
+ x & -1.001$^{***}$ \\ 
+  & (0.002) \\ 
+  & \\ 
+ x & -0.251$^{***}$ \\ 
+  & (0.002) \\ 
+  & \\ 
+ x & 0.749$^{***}$ \\ 
+  & (0.002) \\ 
+  & \\ 
+ x & 3.498$^{***}$ \\ 
+  & (0.002) \\ 
+  & \\ 
+ x & -1.998$^{***}$ \\ 
+  & (0.002) \\ 
+  & \\ 
+ x & 0.500$^{***}$ \\ 
+  & (0.002) \\ 
+  & \\ 
+ x & 0.999$^{***}$ \\ 
+  & (0.002) \\ 
+  & \\ 
+ x & 1.252$^{***}$ \\ 
+  & (0.002) \\ 
+  & \\ 
+ x & 1.999$^{***}$ \\ 
+  & (0.002) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Observations & 100,000 \\ 
+R$^{2}$ & 0.991 \\ 
+Adjusted R$^{2}$ & 0.991 \\ 
+Residual Std. Error & 0.500 (df = 99990) \\ 
+F Statistic & 1,069,864.000$^{***}$ (df = 10; 99990) \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
+
+
+
+
+
+\end{document}
