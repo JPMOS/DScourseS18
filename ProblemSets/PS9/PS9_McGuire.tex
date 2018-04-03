@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{PS9 McGuire}
+\author{Joel McGuire}
+\date{April 2018}
+
+\begin{document}
+
+\maketitle
+
+\section{Dimension}
+506 rows by 14 columns
+
+\section{glmnet Results }
+
+\begin{tabular}{|p{1.5cm}||p{1.5cm}|p{1.5cm}|p{1.5cm}| p{2.0cm} | }
+ \hline
+ \multicolumn{5}{|c|}{Results} \\
+ \hline
+  model & $\lambda$ & $\alpha$  & In RMSE & Out RMSE \\
+ \hline
+ Lasso  & 0.154   & 0     &  0.23 & 0.26 \\
+ Ridge  & 0.00723 & 1     & 0.01  & 0.0094  \\
+ Enet   & 0.0804  & 0.307 &  0.19 & 0.146 \\
+ 
+ \hline
+\end{tabular}
+
+\subsection{Comments}
+The $\alpha$ level for the elastic net model is closer to zero which I take to mean we should prefer the Lasso model, but that seemingly contradicts the results we get for each models RMSE with Ridge having the lowest by a decent margin. 
+
+\section{Additional Questions}
+\subsection{Why can't we run OLS? }
+We can not run OLS on the housing.train dataframe because there are more columns than rows, I think it has to do with the assumption of the independent variables being linearly independent, which would obviously be violated if the columns didn't have full rank. 
+
+\subsection{Bias Variance Trade-off}
+
+Linear models generally lean to the side of sacrificing variance for lower bias and I think we see that in the relatively small difference between in and out of sample RMSE. I am not sure how it happened that the out of sample RMSE for the enet model is less than the in sample but I guess there's always room for some noise. 
+
+\end{document}
+
+
