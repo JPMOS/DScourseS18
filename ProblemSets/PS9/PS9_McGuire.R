@@ -113,43 +113,6 @@ tunedModel3 <- tuneParams(learner = predAlg,
 
 
 
-# Search over penalty parameter lambda and force elastic net parameter to be 0 (ridge)
-# Why do we need to do this again? 
-
-modelParams <- makeParamSet(makeNumericParam("lambda",lower=0,upper=1),makeNumericParam("alpha",lower=0,upper=0))
-modelParams2 <- makeParamSet(makeNumericParam("lambda",lower=0,upper=1),makeNumericParam("alpha",lower=1,upper=1))
-modelParams3 <- makeParamSet(makeNumericParam("lambda",lower=0,upper=1),makeNumericParam("alpha",lower=0,upper=1))
-
-
-# Do the tuning again ... why? 
-
-# LASSO
-tunedModel1 <- tuneParams(learner = predAlg,
-                          task = theTask,
-                          resampling = resampleStrat,
-                          measures = rmse,       # RMSE performance measure, this can be changed to one or many
-                          par.set = modelParams,
-                          control = tuneMethod,
-                          show.info = TRUE)
-# RIDGE
-tunedModel2 <- tuneParams(learner = predAlg,
-                          task = theTask,
-                          resampling = resampleStrat,
-                          measures = rmse,       # RMSE performance measure, this can be changed to one or many
-                          par.set = modelParams2,
-                          control = tuneMethod,
-                          show.info = TRUE)
-# ENET
-tunedModel3 <- tuneParams(learner = predAlg,
-                          task = theTask,
-                          resampling = resampleStrat,
-                          measures = rmse,       # RMSE performance measure, this can be changed to one or many
-                          par.set = modelParams3,
-                          control = tuneMethod,
-                          show.info = TRUE)
-
-
-
 #########################
 #   TRAIN & PREDICT 
 #########################
