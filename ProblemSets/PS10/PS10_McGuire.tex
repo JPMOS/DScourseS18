@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+
+\title{PS10 McGuire}
+\author{Joel McGuire}
+\date{April 2018}
+
+\begin{document}
+
+
+
+\maketitle
+
+\section{Introduction}
+
+The neural network performs best in terms of f1 as a measure of accuracy. Naive bayes has the lowest geometric mean of what I assume is the error term, of \$2043.
+
+\subsection{Performance}
+
+\begin{tabular}{lrr}
+\toprule
+  & f1 & gmean\\
+\midrule
+tree   & 0.8976425 & 2094.198\\
+logit  & 0.8633508 & 0.000\\
+nnet   & 0.9069514 & 2126.452\\
+knn    & 0.8977964 & 2106.887\\
+svm    & 0.8939016 & 2086.292\\
+nbayes & 0.8825952 & 2043.110\\
+\bottomrule
+\end{tabular}
+% 
+
+
+
+\subsection{Optimal Parameters}
+
+\begin{tabular}{lll}
+\toprule
+value & measure & model\\
+\midrule
+21        & minsplit  & tree\\
+12        & minbucket & tree\\
+0.003359  & cp        & tree\\
+24        & k         & knn\\
+2.354535  & lambda    & logit\\
+\addlinespace
+0.472230  & alpha     & logit\\
+radial    & kernel    & svm\\
+47.001022 & cost      & svm\\
+0.498152  & gamma     & svm\\
+10        & size      & nnet\\
+\addlinespace
+0.457640  & decay     & nnet\\
+1000      & maxit     & nnet\\
+\bottomrule
+\end{tabular}
+
+
+
+\end{document}
