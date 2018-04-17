@@ -1,0 +1,83 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{PS11 McGuire: Using Geolocated Tweets to Predict Savings Rates}
+\author{Joel McGuire & Donald Li}
+\date{April 2018}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+
+
+\begin{document}
+
+\maketitle
+
+
+\section{Introduction}
+
+\subsection{Future Orientation}
+
+Future orientation is a dimension of intrapersonal and intercultural psychology with ties to health and economic metrics. Evidence suggests it has the capacity to predict growth and savings rates on a national level as well as economic and health behaviors on an individual scale.
+
+Time perspective is a fundamental psychological dimension humans use to frame experienced reality as belonging to the past, present, or future \cite{zimbardo2015putting}. Whether one is more oriented towards the future or present is deeply related to self regulation \cite{howlett2008role}. Individuals who are more future orientated have been shown to be more likely to engage in numerous positive health behaviors, including moderation of ones diet, limited intake of mind altering substances, increased seat belt use, etc. Contrarily, individuals who are characterized as being more present orientated have been shown to be have a higher likelihood of engaging in risky health behaviors such as excessive consumption of alcohol, drugs and unprotected sex \cite{henson2006associations, daugherty2010taking}. These effects persist even when factors such as being a rapscallion youth are accounted for. 
+
+Among other factors such as financial literacy and risk preference, future orientation affects personal savings rate. Future orientated person's are more like to save both on an individual level \cite{jacobs2005influence}, and as a country \cite{hofstede1988confucius, hofstede1991cultures}. Read, cited by Hofstede, found that a country scoring higher on an index of long term orientation is positively related to the marginal propensity to save \cite{read1993politics}.
+
+\subsection{Twitter as a Social Science Tool}
+
+The use of twitter for social science research has grown in recent years. Mitchel and colleagues used sentiment analysis to create a new index of happiness by city in the USA \cite{mitchell2013geography}. Most closely related in methodology is the the work done to predict HIV rates on a county level using an index of geolocated future oriented tweeted \cite{ireland2015future}. Twitter has also been used to predict instances of crime \cite{gerber2014predicting}, elections results \cite{tumasjan2011election}, and of course future movements of the stock market \cite{bollen2011twitter}. 
+
+
+\subsection{Time Perspective and the Internet}
+
+Prior research has created a future orientation index from Google search terms of a countrywide level \cite{preis2012quantifying}.
+No one has yet pursued any research on seeing if an index of future orientation can be constructed from geolocated tweets for a more granular geographic region. We seek to find if such an index has any ability to predict factors related to future orientation on a state level, or metropolitan area.
+
+In the vein of Chen's work on how language itself changes inter-temporal choice, finding that "languages that grammatically associate the future and the present foster future-oriented behavior" (2013), we hypothesize that areas with relatively future oriented tweets will have higher savings rates.
+A shortcoming of previous metrics of future orientation are an inability to capture changes in culture, primarily by the assumption of cultural being relatively invariant \cite{tang2008framework}. Benefits to this method are that it opens an avenue to the possibility of creating a dynamic understanding of cultural change through language, and an ability to compare that relationship with macroeconomic indicators. 
+
+\section{Methodology}
+
+\subsection{Data Source}
+Tweets were streamed using the Twitter API (N = 2,007,230) from February 2018 to April 2018. Collecting millions of geolocated tweets is a non trivial endeavor. 
+
+The dictionary of future oriented words was retrieved from LIWC. 
+
+GDP growth rate was retrived from the Bureau of Economic Analysis. Most problematic is the current inability to match any macroeconomic indicator to this small window of twitter sentiment retrieved.
+
+
+\subsection{Analysis Strategy}
+A simple approach to natural language processing was used to create our future orientation index for the United States. Implementing the 2015 dictionary of the Linguistic Inquiry and Word Count (LIWC), an extensively validated tool for text analysis, was used to identify a set of future oriented words such as "gonna", "will", and "hope" \cite{pennebaker2015development}. These words that have been previously identified as relating to a longer time perspective were aggregated per state. The index was created by counting the amount of future oriented words as a percent of total words written in all geolocated tweets in a state. 
+
+We need to create a better metric that weights each word according to its frequency without allowing an outlier to dominate the score for that state.
+
+Even though we do naively regress the index of future orientation on the nearest data we have on GDP growth rate, we acknowledge there is little reason to suggest they would be related. We must wait for the data to catch up. Perhaps there would be more flexibility on a metropolitan level.
+
+\subsection{PROBLEMS}
+
+\begin{enumerate}
+    \item There is not any data for savings rate on the state level. Alternatives: Growth in investment related industry, financial services perhaps, what about change in personal consumption? Venture capital on the metropolitan level? 
+    \item Each word is not weighted in accordance with its frequency.
+    \item There is no apparent relationship between the growth rate of the 3rd Quarter of 2017 and the future sentiment index of (mostly) the 2nd quarter of 2018. I am shocked.
+\end{enumerate}
+
+\subsection{Results}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=10cm,height=10cm]{US_future_sentiment.png}
+\caption{US_future_sentiment}
+\end{figure}
+
+Above you can see that there is something. What it means we aren't exactly sure. States with large metropolitan populations appear less future oriented, other than that, who knows.
+
+\subsubsection{Real Results}
+
+So far the merits of this project have been in the creation of an easy to use set of wrapper functions for automating twitter collection in R. 
+
+
+\bibliographystyle{plain}
+\bibliography{PS11_McGuire.bib}
+
+\end{document}
